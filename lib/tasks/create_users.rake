@@ -2,8 +2,6 @@ desc 'Create Users (skips Devise user confirmation)'
 task :create_users => :environment do
 
   users_to_create = 10
-  starting_id_to_create = User.last ? ( User.last.id + 1) : 1
-  ending_id_to_create = starting_id_to_create + users_to_create
 
   if User.last.nil?
       puts "*"*50
@@ -34,6 +32,9 @@ task :create_users => :environment do
       puts " "
   end
 
+  starting_id_to_create = User.last ? ( User.last.id + 1) : 1
+  ending_id_to_create = starting_id_to_create + users_to_create
+
   puts " "
   puts "#{User.all.count} Users in DB"
   puts " "
@@ -56,7 +57,6 @@ task :create_users => :environment do
 
   all_available_roles = Role.defined_roles
   limited_roles = ["staff", "customer"]
-
 
   (starting_id_to_create..ending_id_to_create).each do |id|
         user = User.new(
