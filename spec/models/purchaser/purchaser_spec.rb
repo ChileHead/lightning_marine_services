@@ -19,7 +19,7 @@ RSpec.describe Purchaser, type: :model do
   end
 
   it "is a valid purchaser" do
-    expect(purchaser.valid?).to be true
+    expect(purchaser).to be_valid
   end
 
 end

@@ -91,6 +91,7 @@ task :create_orders => :environment do
     archived_options = [true, false]
 
     order_delivery_date = Faker::Date.between(from: '2017-01-23', to: Time.now)
+
     order_recieval_date = Faker::Date.between(from: order_delivery_date.prev_month, to: order_delivery_date)
 
     order = Order.new(

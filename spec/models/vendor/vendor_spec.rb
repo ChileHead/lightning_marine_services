@@ -19,7 +19,7 @@ RSpec.describe Vendor, type: :model do
   end
 
   it "is a valid vendor" do
-    expect(vendor.valid?).to be true
+    expect(vendor).to be_valid
   end
 
 end
