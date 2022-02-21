@@ -2,10 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Order, type: :model do
 
-  Order.destroy_all
-  Purchaser.destroy_all
-  Vendor.destroy_all
-
   purchaser = Purchaser.create(name: 'Sample purchaser')
   vendor = Vendor.create(name: 'Sample vendor')
 
@@ -28,12 +24,6 @@ RSpec.describe Order, type: :model do
   )
 
   order.save
-
-  after do
-    order.destroy
-    purchaser.destroy
-    vendor.destroy
-  end
 
   it "is a valid order" do
     expect(order).to be_valid
